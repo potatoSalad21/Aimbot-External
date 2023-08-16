@@ -44,5 +44,4 @@ public:
 		if (hProc)
 			CloseHandle(hProc);
 	}
-
 };
