@@ -62,7 +62,7 @@ int main()
 	{
 		std::this_thread::sleep_for(std::chrono::milliseconds(1));
 
-		if (!GetAsyncKeyState(VK_RBUTTON))
+		if (!GetAsyncKeyState(VK_SHIFT))
 			continue;
 
 		const auto localPlayer = mem.Read<uintptr_t>(client + offsets::dwLocalPlayer);
@@ -99,9 +99,9 @@ int main()
 
 				// getting the entity's head position
 				Vector3 entityHeadPos{
-					mem.Read<float>(boneMatrix + 0x30 * 8 + 0x0C),
-					mem.Read<float>(boneMatrix + 0x30 * 8 + 0x1C),
-					mem.Read<float>(boneMatrix + 0x30 * 8 + 0x2C)
+					mem.Read<float>(boneMatrix + 0x30 * headBoneIndex + 0x0C),
+					mem.Read<float>(boneMatrix + 0x30 * headBoneIndex + 0x1C),
+					mem.Read<float>(boneMatrix + 0x30 * headBoneIndex + 0x2C)
 				};
 
 				// calculating the angle and FOV
